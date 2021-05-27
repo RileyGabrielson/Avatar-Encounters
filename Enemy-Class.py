@@ -27,12 +27,21 @@ class Enemy:
 
     
     self.name = ""
+    self.category = ""
+    self.level = ""
 
     self.health = 0
     self.damage = 0
     self.defense = 0
-    self.damage_focus = 0
-    self.strength = 0
+    self.pierce = 0
+    
+
+
+    self.singleTarget = False
+    self.strength = False
+    self.targetHighest = False
+    self.targetLowest = False
+
     
 
 
