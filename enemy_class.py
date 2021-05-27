@@ -3,23 +3,26 @@
 
 class Enemy:
 
-    def __init__(self, ):
-        self.name = ""
-        self.category = ""
-        self.level = ""
+    def __init__(self, dict=None):
+        if dict != None:
+            vars(self).update(dict)
+        else:
+            self.name = ""
+            self.category = ""
+            self.level = ""
 
-        self.health = 0
-        self.damage = 0
-        self.defense = 0
-        self.pierce = 0
+            self.health = 0
+            self.damage = 0
+            self.defense = 0
+            self.pierce = 0
 
-        self.singleTarget = False
-        self.giveStrength = False
-        self.targetHighest = False
-        self.targetLowest = False
+            self.singleTarget = False
+            self.giveStrength = False
+            self.targetHighest = False
+            self.targetLowest = False
 
     def __str__(self):
-        string = self.name + ": " + self.level + " (" + self.category + ")"
+        string = self.name + ": " + self.level.title() + " (" + self.category.title() + ")"
         string += "\n" + "Health: " + str(self.health)
         string += "\n" + "Damage: " + str(self.damage)
         string += "\n" + "Defense: " + str(self.defense)

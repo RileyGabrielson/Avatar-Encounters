@@ -1,16 +1,18 @@
-from os import system, name, path
+from os import system, name, path, listdir
 from enemy_class import Enemy
 import commands
 import json
 
-input_marker = "-> "
+INPUT_MARKER = "-> "
+ENEMIES_FOLDER = ".\enemies"
 
 def PrintOptions():
     print()
     print("  --------Main Menu--------")
     print()
     print("  1. Create New Enemy")
-    print("  2. Help")
+    print("  2. Enemy Gallery")
+    print("  3. Help")
     print("  q. Quit")
     print()
 
@@ -29,7 +31,7 @@ def Help():
     print("  If inputting a number, press enter to default to 0")
     print("  If inputting a boolean, press enter to default to False")
     print()
-    _ = input(input_marker)
+    _ = input(INPUT_MARKER)
 
 def NewEnemy():
     ClearScreen()
@@ -48,24 +50,24 @@ def NewEnemy():
     
     print()
     print("  Press Enter to continue")
-    _ = input(input_marker)
+    _ = input(INPUT_MARKER)
        
 def CollectEnemyData():
     playerEnemy = Enemy()
     
     print("  Enter Enemy Name")
-    name = input(input_marker)
+    name = input(INPUT_MARKER)
     playerEnemy.name = name
     print()
 
     print("  Enter Enemy Category (Fire Nation, Creature, Other Nation)")
-    category = input(input_marker)
+    category = input(INPUT_MARKER)
     category = category.lower()
     playerEnemy.category = category
     print()
 
     print("  Enter Enemy Level (Minion, Sub-Boss, Boss)")
-    level = input(input_marker)
+    level = input(INPUT_MARKER)
     level = level.lower()
     playerEnemy.level = level
     print()
@@ -132,7 +134,7 @@ def CollectEnemyData():
     return playerEnemy
     
 def GetPlayerInt():
-    playerString = input(input_marker)
+    playerString = input(INPUT_MARKER)
     if playerString in commands.default:
         return 0
 
@@ -144,7 +146,7 @@ def GetPlayerInt():
         return None
 
 def GetPlayerBool():
-    playerString = input(input_marker)
+    playerString = input(INPUT_MARKER)
     if playerString in commands.default:
         return False
     
@@ -178,6 +180,62 @@ def SaveEnemy(playerEnemy):
     file.write(json.dumps(playerEnemy.__dict__))
     file.close()
 
+def EnemyGallery():
+    ClearScreen()
+    print()
+    print("  -------Enemy Gallery-------")
+    print("  (Enter an index to examine)")
+    print()
+
+    filenames = GetEnemyFilenames()
+    enemies = GetEnemiesFromFile(filenames)
+    ListEnemies(enemies)
+
+    playerIndex = input(INPUT_MARKER)
+    if not playerIndex.isdigit():
+        return
+    else:
+        index = int(playerIndex)
+        index -= 1
+        if index < 0 or index >= len(enemies):
+            return
+        else:
+            DisplayEnemy(enemies[index])
+            EnemyGallery()
+
+
+def DisplayEnemy(enemy):
+    ClearScreen()
+    print()
+    print("  " + AddSpacesToLines(str(enemy)))
+    print()
+    print("  Press Enter to return to gallery")
+    print()
+    _ = input(INPUT_MARKER)
+
+def AddSpacesToLines(s):
+    return '  '.join(s.splitlines(True))
+
+
+def GetEnemyFilenames():
+    return [path.join(ENEMIES_FOLDER, f) for f in listdir(ENEMIES_FOLDER) if path.isfile(path.join(ENEMIES_FOLDER, f))]
+
+def GetEnemiesFromFile(filenames):
+    enemyList = []
+    
+    for file in filenames:
+        f = open(file, "r")
+        jsonString = f.read()
+        enemyObject = json.loads(jsonString, object_hook= Enemy)
+        enemyList.append(enemyObject)
+    
+    return enemyList
+
+def ListEnemies(enemies):
+    for i in range(0, len(enemies)):
+        print("  " + str(i+1) + ". " + enemies[i].name + ": " + enemies[i].level)
+    print()
+
 def GetEnemyFileName(playerEnemy):
     return "enemies/" + playerEnemy.level.replace(" ","") + "_" + playerEnemy.name.replace(" ","")
 
@@ -188,9 +246,12 @@ if __name__ == "__main__":
     while userInput not in commands.quit:
         ClearScreen()
         PrintOptions()
-        userInput = input(input_marker)
+        userInput = input(INPUT_MARKER)
         if userInput in commands.newEnemy:
             NewEnemy()
         if userInput in commands.help:
             Help()
+        if userInput in commands.enemyGallery:
+            EnemyGallery()
+
 
