@@ -1,0 +1,1 @@
+{"name": "Fire Nation Defender", "category": "fire nation", "level": "minion", "health": 12, "damage": 1, "defense": 3, "pierce": 0, "reflect": 0, "singleTarget": false, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": true, "giveDefenseAmount": 2}

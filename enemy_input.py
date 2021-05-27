@@ -100,6 +100,13 @@ def CollectEnemyData():
     playerEnemy.pierce = pierce
     print()
 
+    print("  Enter Enemy Reflect")
+    reflect = GetPlayerInt()
+    if reflect == None:
+        return
+    playerEnemy.reflect = reflect
+    print()
+
     print("  Single Target?")
     singleTarget = GetPlayerBool()
     if singleTarget == None:
@@ -123,11 +130,27 @@ def CollectEnemyData():
             playerEnemy.targetLowest = targetLowestHealth
             print()
 
-    print("  Give Strength to other enemies?")
+    print("  Give strength to other enemies?")
     giveStrength = GetPlayerBool()
     if giveStrength == None:
         return
     playerEnemy.giveStrength = giveStrength
+    print()
+
+    print("  Give defense to other enemies?")
+    giveDefense = GetPlayerBool()
+    if giveDefense == None:
+        return
+    playerEnemy.giveDefense = giveDefense
+    print()
+
+    if giveDefense:
+        print("  How much defense is given to other enemies?")
+        defense = GetPlayerInt()
+        if defense == None:
+            return
+        playerEnemy.giveDefenseAmount = defense
+        print()
     
     ClearScreen()
 
@@ -184,7 +207,8 @@ def EnemyGallery():
     ClearScreen()
     print()
     print("  -------Enemy Gallery-------")
-    print("  (Enter an index to examine)")
+    print("  Enter a number to examine an enemy")
+    print("  (Press Enter to return)")
     print()
 
     filenames = GetEnemyFilenames()
@@ -203,7 +227,6 @@ def EnemyGallery():
             DisplayEnemy(enemies[index])
             EnemyGallery()
 
-
 def DisplayEnemy(enemy):
     ClearScreen()
     print()
@@ -215,7 +238,6 @@ def DisplayEnemy(enemy):
 
 def AddSpacesToLines(s):
     return '  '.join(s.splitlines(True))
-
 
 def GetEnemyFilenames():
     return [path.join(ENEMIES_FOLDER, f) for f in listdir(ENEMIES_FOLDER) if path.isfile(path.join(ENEMIES_FOLDER, f))]
@@ -233,7 +255,12 @@ def GetEnemiesFromFile(filenames):
 
 def ListEnemies(enemies):
     for i in range(0, len(enemies)):
-        print("  " + str(i+1) + ". " + enemies[i].name + ": " + enemies[i].level)
+        if(i < 9):
+            extraSpace = ' '
+        else:
+            extraSpace = ''
+        
+        print("  " + str(i+1) + ". " + extraSpace + enemies[i].level.title()+ ": " + enemies[i].name)
     print()
 
 def GetEnemyFileName(playerEnemy):

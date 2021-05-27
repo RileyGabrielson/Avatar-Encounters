@@ -1,0 +1,1 @@
+{"name": "Heibai", "category": "creature", "level": "sub-boss", "health": 25, "damage": 2, "defense": 1, "pierce": 1, "reflect": 0, "singleTarget": false, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}

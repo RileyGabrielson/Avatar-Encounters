@@ -1,0 +1,1 @@
+{"name": "Pirate Captain", "category": "other", "level": "sub-boss", "health": 15, "damage": 4, "defense": 0, "pierce": 0, "reflect": 0, "singleTarget": false, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}

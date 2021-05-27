@@ -1,0 +1,1 @@
+{"name": "Fire Nation Camp", "category": "fire nation", "level": "minion", "health": 10, "damage": 2, "defense": 0, "pierce": 0, "reflect": 0, "singleTarget": true, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}

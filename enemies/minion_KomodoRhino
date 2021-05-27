@@ -1,0 +1,1 @@
+{"name": "Komodo Rhino", "category": "fire nation", "level": "minion", "health": 3, "damage": 3, "defense": 1, "pierce": 0, "reflect": 0, "singleTarget": true, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}

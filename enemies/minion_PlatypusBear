@@ -1,0 +1,1 @@
+{"name": "Platypus Bear", "category": "creature", "level": "minion", "health": 30, "damage": 4, "defense": 0, "pierce": 0, "reflect": 0, "singleTarget": false, "giveStrength": false, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}
