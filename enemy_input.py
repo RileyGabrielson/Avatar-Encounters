@@ -8,7 +8,9 @@ input_marker = "-> "
 def PrintOptions():
     print()
     print("  --------Main Menu--------")
-    print("  1. Save New Enemy")
+    print()
+    print("  1. Create New Enemy")
+    print("  2. Help")
     print("  q. Quit")
     print()
 
@@ -18,6 +20,16 @@ def ClearScreen():
     else:
         _ = system('clear')
 
+def Help():
+    ClearScreen()
+    print()
+    print("  -------Help-------")
+    print()
+    print("  Commands")
+    print("  If inputting a number, press enter to default to 0")
+    print("  If inputting a boolean, press enter to default to False")
+    print()
+    _ = input(input_marker)
 
 def NewEnemy():
     ClearScreen()
@@ -149,7 +161,7 @@ def ConfirmEnemy(playerEnemy):
     print()
     print("  Filename: " + GetEnemyFileName(playerEnemy))
     print()
-    print("  Is this correct? [y/N]")
+    print("  Is this correct?")
     response = GetPlayerBool()
 
     if path.exists(GetEnemyFileName(playerEnemy)):
@@ -179,4 +191,6 @@ if __name__ == "__main__":
         userInput = input(input_marker)
         if userInput in commands.newEnemy:
             NewEnemy()
+        if userInput in commands.help:
+            Help()
 
