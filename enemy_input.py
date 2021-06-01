@@ -2,9 +2,10 @@ from os import system, name, path, listdir
 from enemy_class import Enemy
 import commands
 import json
+import enemy_files
 
 INPUT_MARKER = "-> "
-ENEMIES_FOLDER = ".\enemies"
+
 
 def PrintOptions():
     print()
@@ -42,7 +43,7 @@ def NewEnemy():
     newEnemy = CollectEnemyData()
     if newEnemy != None:
         if ConfirmEnemy(newEnemy):
-            SaveEnemy(newEnemy)
+            enemy_files.SaveEnemy(newEnemy)
             print("Saved")
         else:
             print("Discarded")
@@ -184,12 +185,12 @@ def GetPlayerBool():
 def ConfirmEnemy(playerEnemy):
     print(str(playerEnemy))
     print()
-    print("  Filename: " + GetEnemyFileName(playerEnemy))
+    print("  Filename: " + enemy_files.GetEnemyFileName(playerEnemy))
     print()
     print("  Is this correct?")
     response = GetPlayerBool()
 
-    if path.exists(GetEnemyFileName(playerEnemy)):
+    if path.exists(enemy_files.GetEnemyFileName(playerEnemy)):
         print("  File already exists. Overwrite?")
         response = GetPlayerBool()
 
@@ -197,11 +198,6 @@ def ConfirmEnemy(playerEnemy):
         return False
     else:
         return response
-
-def SaveEnemy(playerEnemy):
-    file = open(GetEnemyFileName(playerEnemy), "w")
-    file.write(json.dumps(playerEnemy.__dict__))
-    file.close()
 
 def EnemyGallery():
     ClearScreen()
@@ -211,8 +207,8 @@ def EnemyGallery():
     print("  (Press Enter to return)")
     print()
 
-    filenames = GetEnemyFilenames()
-    enemies = GetEnemiesFromFile(filenames)
+    filenames = enemy_files.GetEnemyFilenames()
+    enemies = enemy_files.GetEnemiesFromFile(filenames)
     ListEnemies(enemies)
 
     playerIndex = input(INPUT_MARKER)
@@ -239,20 +235,6 @@ def DisplayEnemy(enemy):
 def AddSpacesToLines(s):
     return '  '.join(s.splitlines(True))
 
-def GetEnemyFilenames():
-    return [path.join(ENEMIES_FOLDER, f) for f in listdir(ENEMIES_FOLDER) if path.isfile(path.join(ENEMIES_FOLDER, f))]
-
-def GetEnemiesFromFile(filenames):
-    enemyList = []
-    
-    for file in filenames:
-        f = open(file, "r")
-        jsonString = f.read()
-        enemyObject = json.loads(jsonString, object_hook= Enemy)
-        enemyList.append(enemyObject)
-    
-    return enemyList
-
 def ListEnemies(enemies):
     for i in range(0, len(enemies)):
         if(i < 9):
@@ -263,8 +245,7 @@ def ListEnemies(enemies):
         print("  " + str(i+1) + ". " + extraSpace + enemies[i].level.title()+ ": " + enemies[i].name)
     print()
 
-def GetEnemyFileName(playerEnemy):
-    return "enemies/" + playerEnemy.level.replace(" ","") + "_" + playerEnemy.name.replace(" ","")
+
 
 
 if __name__ == "__main__":
