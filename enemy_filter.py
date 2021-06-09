@@ -1,4 +1,4 @@
-import src.enemy_files as enemy_files
+import enemy_files
 
 
 
@@ -50,16 +50,13 @@ def FilterBySingleTarget(enemyList):
             new_enemies.append(enemy)
     return new_enemies
 
-
-"""
 def FilterByAOE(enemyList):
     new_enemies = []
     
     for enemy in enemies:
-        if enemy.singleTarget:
+        if not enemy.singleTarget:
             new_enemies.append(enemy)
     return new_enemies
-"""
 
 def FilterByCategory(enemyList, category):
     new_enemies = []
