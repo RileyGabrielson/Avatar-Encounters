@@ -2,7 +2,7 @@ from enemy_class import Enemy
 import json
 from os import system, name, path, listdir
 
-ENEMIES_FOLDER = "..\enemies"
+ENEMIES_FOLDER = ".\enemies"
 
 
 def GetEnemyFileName(playerEnemy):
