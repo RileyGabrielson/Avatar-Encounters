@@ -1,7 +1,7 @@
 from os import system, name, path, listdir
-from enemy_class import Enemy
-import commands
-import enemy_files
+from src.enemy_class import Enemy
+import src.commands as commands
+import src.enemy_files as enemy_files
 
 INPUT_MARKER = "-> "
 

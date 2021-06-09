@@ -1,4 +1,4 @@
-from enemy_class import Enemy
+from src.enemy_class import Enemy
 import json
 from os import system, name, path, listdir
 
