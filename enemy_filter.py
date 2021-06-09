@@ -1,7 +1,5 @@
 import enemy_files
 
-
-
 def FilterByHealth(enemyList, minHealth, maxHealth):
     new_enemies = []
     
@@ -74,7 +72,7 @@ def FilterBylevel(enemyList, level):
             new_enemies.append(enemy)
     return new_enemies
 
-def FilterByGiveStrength(enemyList, giveStrength):
+def FilterByGiveStrength(enemyList):
     new_enemies = []
 
     for enemy in enemies: 
@@ -99,8 +97,7 @@ if __name__ == "__main__":
     
     """
 
-    new_enemies = FilterByGiveStrength(enemies, "giveStrength")
-
+    new_enemies = FilterByGiveStrength(enemies)
 
     for enemy in new_enemies:
         print("---------------------")
