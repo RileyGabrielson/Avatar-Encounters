@@ -1,6 +1,6 @@
 import enemy_filter as filter
 from encounter_param import Encounter_Param
-from enemy_class import Enemy
+from enemy import Enemy
 import random
 import enemy_files
 import copy

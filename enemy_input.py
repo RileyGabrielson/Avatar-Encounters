@@ -1,5 +1,5 @@
 from os import system, name, path, listdir
-from enemy_class import Enemy
+from enemy import Enemy
 import commands
 import enemy_files
 
@@ -107,6 +107,27 @@ def CollectEnemyData():
     playerEnemy.reflect = reflect
     print()
 
+    print("  Enter Enemy Burn")
+    burn = GetPlayerFloat()
+    if burn == None:
+        return
+    playerEnemy.burn = burn
+    print()
+
+    print("  Enter Enemy Stun")
+    stun = GetPlayerFloat()
+    if stun == None:
+        return
+    playerEnemy.stun = stun
+    print()
+
+    print("  Enter Enemy Fatigue")
+    fatigue = GetPlayerFloat()
+    if fatigue == None:
+        return
+    playerEnemy.fatigue = fatigue
+    print()
+
     print("  Single Target?")
     singleTarget = GetPlayerBool()
     if singleTarget == None:
@@ -167,6 +188,19 @@ def GetPlayerInt():
     else:
         print("  Error: Invalid integer input")
         return None
+
+def GetPlayerFloat():
+    playerString = input(INPUT_MARKER)
+    if playerString in commands.default:
+        return 0.0
+
+    try:
+        playerFloat = float(playerString)
+        return playerFloat
+    except ValueError:
+        print("  Error: Invalid float input")
+        return None
+
 
 def GetPlayerBool():
     playerString = input(INPUT_MARKER)

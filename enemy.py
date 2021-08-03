@@ -12,13 +12,13 @@ class Enemy:
         self.pierce = 0
         self.reflect = 0
 
+        self.burn = 0
+        self.stun = 0
+        self.fatigue = 0
+
         self.singleTarget = False
-        self.giveStrength = False
         self.targetHighest = False
         self.targetLowest = False
-        self.giveDefense = False
-
-        self.giveDefenseAmount = 0
 
         if dict != None:
             vars(self).update(dict)
@@ -33,18 +33,19 @@ class Enemy:
         if(self.reflect > 0):
             string += "\n" + "Reflect: " + str(self.reflect)
 
+        if(self.burn > 0):
+            string += "\n" + "Burn: " + str(self.burn)
+        if(self.stun > 0):
+            string += "\n" + "Stun: " + str(self.stun)
+        if(self.fatigue > 0):
+            string += "\n" + "Fatigue: " + str(self.fatigue)
+        
         if self.singleTarget:
             string += "\n" + "Single Target"
             if self.targetHighest:
                 string +=  ": Highest Health"
             if self.targetLowest:
                 string +=  ": Lowest Health"
-        
-        if self.giveStrength:
-            string += "\n" + "Gives Strength to Other Enemies"
-
-        if self.giveDefense:
-            string += "\n" + "Gives " + str(self.giveDefenseAmount) + " Defense to Other Enemies"
 
         return string
 

@@ -1,1 +1,0 @@
-{"name": "Fire Nation Flagship", "category": "fire nation", "level": "sub-boss", "health": 13, "damage": 1, "defense": 3, "pierce": 0, "reflect": 0, "singleTarget": false, "giveStrength": true, "targetHighest": false, "targetLowest": false, "giveDefense": false, "giveDefenseAmount": 0}
