@@ -16,6 +16,14 @@ def FilterByDamage(enemyList, minDamage, maxDamage):
             new_enemies.append(enemy)
     return new_enemies
 
+def FilterByAllDamage(enemyList, minDamage, maxDamage):
+    new_enemies = []
+    
+    for enemy in enemyList:
+        if (enemy.damage + enemy.pierce) <= maxDamage and (enemy.damage + enemy.pierce) >= minDamage:
+            new_enemies.append(enemy)
+    return new_enemies
+
 def FilterByDefense(enemyList, minDefense, maxDefense):
     new_enemies = []
     
