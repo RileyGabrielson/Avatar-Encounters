@@ -172,6 +172,11 @@ def CollectEnemyData():
             return
         playerEnemy.giveDefenseAmount = defense
         print()
+
+    print("  Other abilities")
+    otherAbilities = input(INPUT_MARKER)
+    playerEnemy.other = otherAbilities
+    print()
     
     ClearScreen()
 

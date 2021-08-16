@@ -20,6 +20,8 @@ class Enemy:
         self.targetHighest = False
         self.targetLowest = False
 
+        self.other = ""
+
         if dict != None:
             vars(self).update(dict)
 
@@ -46,6 +48,9 @@ class Enemy:
                 string +=  ": Highest Health"
             if self.targetLowest:
                 string +=  ": Lowest Health"
+
+        if self.other != "":
+            string += "\n" + "Other: " + self.other
 
         return string
 
