@@ -122,6 +122,13 @@ def FilterByDifficulty(enemyList, minDifficulty, maxDifficulty):
             new_enemies.append(enemy)
     return new_enemies
 
+def GetEnemyCategories(enemyList):
+    categories = set()
+
+    for enemy in enemyList:
+        categories.add(enemy.category)
+
+    return categories
 
 if __name__ == "__main__":
     enemies = enemy_files.GetEnemiesFromFile(enemy_files.GetEnemyFilenames())
