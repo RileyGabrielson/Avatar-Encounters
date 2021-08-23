@@ -1,0 +1,1 @@
+{"name": "Nyla", "category": "other nation", "level": "sub-boss", "health": 25, "damage": 2.5, "defense": 1.0, "pierce": 0.0, "reflect": 0.0, "burn": 0.0, "stun": 0.5, "fatigue": 0.0, "loseCoin": 0.0, "singleTarget": false, "targetHighest": false, "targetLowest": false, "other": "", "giveStrength": false, "giveDefense": false}

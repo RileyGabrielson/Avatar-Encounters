@@ -15,6 +15,7 @@ class Enemy:
         self.burn = 0
         self.stun = 0
         self.fatigue = 0
+        self.loseCoin = 0
 
         self.singleTarget = False
         self.targetHighest = False
@@ -41,6 +42,8 @@ class Enemy:
             string += "\n" + "Stun: " + str(self.stun)
         if(self.fatigue > 0):
             string += "\n" + "Fatigue: " + str(self.fatigue)
+        if(self.loseCoin > 0):
+            string += "\n" + "Lose Coin: " + str(self.loseCoin)
         
         if self.singleTarget:
             string += "\n" + "Single Target"

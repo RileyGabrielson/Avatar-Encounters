@@ -80,28 +80,28 @@ def CollectEnemyData():
     print()
 
     print("  Enter Enemy Damage")
-    dmg = GetPlayerInt()
+    dmg = GetPlayerFloat()
     if dmg == None:
         return
     playerEnemy.damage = dmg
     print()
 
     print("  Enter Enemy Defense")
-    defense = GetPlayerInt()
+    defense = GetPlayerFloat()
     if defense == None:
         return
     playerEnemy.defense = defense
     print()
 
     print("  Enter Enemy Pierce")
-    pierce = GetPlayerInt()
+    pierce = GetPlayerFloat()
     if pierce == None:
         return
     playerEnemy.pierce = pierce
     print()
 
     print("  Enter Enemy Reflect")
-    reflect = GetPlayerInt()
+    reflect = GetPlayerFloat()
     if reflect == None:
         return
     playerEnemy.reflect = reflect
@@ -126,6 +126,13 @@ def CollectEnemyData():
     if fatigue == None:
         return
     playerEnemy.fatigue = fatigue
+    print()
+
+    print("  Enter Enemy Lose Coin")
+    loseCoin = GetPlayerFloat()
+    if loseCoin == None:
+        return
+    playerEnemy.loseCoin = loseCoin
     print()
 
     print("  Single Target?")

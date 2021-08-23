@@ -1,0 +1,1 @@
+{"name": "Fire Nation Soldiers", "category": "fire nation", "level": "minion", "health": 6, "damage": 1, "defense": 0, "pierce": 0, "reflect": 0, "burn": 0.0, "stun": 0.0, "fatigue": 0.0, "loseCoin": 0.0, "singleTarget": false, "targetHighest": false, "targetLowest": false, "other": "", "giveStrength": false, "giveDefense": false}

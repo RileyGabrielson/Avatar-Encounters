@@ -1,3 +1,4 @@
+from difficulty import getDifficulty
 import enemy_files
 
 def FilterByHealth(enemyList, minHealth, maxHealth):
@@ -109,6 +110,15 @@ def FilterByGiveDefense(enemyList):
 
     for enemy in enemyList: 
         if enemy.giveDefense:
+            new_enemies.append(enemy)
+    return new_enemies
+
+def FilterByDifficulty(enemyList, minDifficulty, maxDifficulty):
+    new_enemies = []
+
+    for enemy in enemyList:
+        difficulty = getDifficulty(enemy)
+        if difficulty >= minDifficulty and difficulty <= maxDifficulty:
             new_enemies.append(enemy)
     return new_enemies
 

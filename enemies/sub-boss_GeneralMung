@@ -1,0 +1,1 @@
+{"name": "General Mung", "category": "fire nation", "level": "sub-boss", "health": 30, "damage": 6, "defense": 3, "pierce": 0, "reflect": 0, "burn": 0.0, "stun": 0.0, "fatigue": 0.0, "loseCoin": 0.0, "singleTarget": false, "targetHighest": false, "targetLowest": false, "other": "", "giveStrength": false, "giveDefense": false}
