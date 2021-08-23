@@ -1,0 +1,20 @@
+To generate encounters: 
+    open Anaconda Powershell app, and change directory to this folder (cd Desktop, then cd Code, etc.)
+    type 'python ./generate_encounter.py'
+    enter parameters
+
+To add, edit, or view current enemies:
+    open Anaconda Powershell app, and change directory to this folder (cd Desktop, then cd Code, etc.)
+    type 'python ./enemy_input.py'
+    Access options from the main menu
+
+To delete enemies:
+    open the enemies folder in file explorer and delete any enemy file
+
+To edit encounter generation weights:
+    this would be used to make pierce not contribute as much to difficulty, or make status effects count as being more powerful
+    open 'difficulty.py' in any text editor
+    the difficulty scales are lines 7-12, change any of the algebraic statements
+    save the file and run generate_encounter again (see above)
+
+Questions? Contact Riley Gabrielson
