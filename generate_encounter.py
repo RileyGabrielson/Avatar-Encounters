@@ -10,7 +10,7 @@ from os import system, name
 NO_VALID_ENEMIES = 'NO VALID ENEMIES'
 
 
-def GenerateEncounterAOE(enemies, params):
+def GenerateEncounter(enemies, params):
     
     if not isinstance(params, Encounter_Param):
         raise ValueError("Params must be an Encounter_Param Object")
@@ -19,7 +19,7 @@ def GenerateEncounterAOE(enemies, params):
     while i < params.generateAttempts and len(encounter) == 0:
         current_params = copy.deepcopy(params)
         encounter = []
-        filtered_enemies = filter.FilterByAOE(enemies)
+        filtered_enemies = enemies
         if params.category != None:
             filtered_enemies = filter.FilterByCategory(filtered_enemies, params.category)
         new_enemy = None
@@ -109,7 +109,7 @@ if __name__ == "__main__":
         params.minDifficulty = minDifficulty
         params.maxDifficulty = maxDifficulty
         params.category = category
-        encounter = GenerateEncounterAOE(enemies, params)
+        encounter = GenerateEncounter(enemies, params)
 
         if len(encounter) == 0:
             print("Could not generate encounter in " + str(params.generateAttempts) + " attempts. Try again!")

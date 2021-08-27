@@ -1,0 +1,1 @@
+{"name": "Prison Rig Warden", "category": "fire nation", "level": "sub-boss", "health": 25, "damage": 8.0, "defense": 0.0, "pierce": 0.0, "reflect": 0.0, "burn": 0.0, "stun": 0.0, "fatigue": 0.0, "loseCoin": 0.0, "singleTarget": true, "targetHighest": false, "targetLowest": true, "other": "", "giveStrength": false, "giveDefense": false}
