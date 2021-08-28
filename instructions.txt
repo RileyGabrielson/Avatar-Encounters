@@ -17,4 +17,17 @@ To edit encounter generation weights:
     the difficulty scales are lines 7-12, change any of the algebraic statements
     save the file and run generate_encounter again (see above)
 
+
+
+Pull Files from remote repository
+	change to this directory in powershell
+	type "git pull"
+
+Add files to remote repository
+	change to this directory in anaconda powershell
+	type "git add -A"
+	type git commit -m "a description of the changes you made"
+	type "git push"
+
+
 Questions? Contact Riley Gabrielson
